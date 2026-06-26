@@ -23,7 +23,7 @@ from utils import (
     exibir_rodape,
     calcular_estatisticas,
 )
-from inference_engine import MecanismoInferencia
+from questão1.inference_engine import MecanismoInferencia
 
 
 def exibir_instrucoes() -> None:

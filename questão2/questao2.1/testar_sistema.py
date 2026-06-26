@@ -4,7 +4,7 @@ Script de teste para verificar o funcionamento do sistema.
 """
 
 from utils import carregar_base_conhecimento, obter_nome_atributo_pergunta
-from inference_engine import MecanismoInferencia
+from questão1.inference_engine import MecanismoInferencia
 
 
 def testar_carregamento():

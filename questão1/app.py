@@ -7,7 +7,7 @@ import os
 import json
 import uuid
 from flask import Flask, render_template, request, jsonify, session
-from inference_engine import InferenceEngine
+from questão1.inference_engine import InferenceEngine
 
 # ---------------------------------------------------------------------------
 # DeepSeek LLM client (OpenAI-compatible)
