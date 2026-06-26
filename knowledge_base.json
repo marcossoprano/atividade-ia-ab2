@@ -1,0 +1,1266 @@
+{
+  "domain": "Diagnóstico Médico",
+  "version": "1.0",
+  "facts": [
+    {"id": "febre_alta", "attribute": "febre", "value": "alta", "description": "Temperatura corporal acima de 38.5°C"},
+    {"id": "febre_moderada", "attribute": "febre", "value": "moderada", "description": "Temperatura corporal entre 37.5°C e 38.5°C"},
+    {"id": "febre_ausente", "attribute": "febre", "value": "ausente", "description": "Temperatura corporal normal"},
+    {"id": "tosse_sim", "attribute": "tosse", "value": "sim", "description": "Presença de tosse"},
+    {"id": "tosse_nao", "attribute": "tosse", "value": "nao", "description": "Ausência de tosse"},
+    {"id": "tosse_seca", "attribute": "tipo_tosse", "value": "seca", "description": "Tosse seca sem secreção"},
+    {"id": "tosse_produtiva", "attribute": "tipo_tosse", "value": "produtiva", "description": "Tosse com secreção/catarro"},
+    {"id": "dor_cabeca_sim", "attribute": "dor_cabeca", "value": "sim", "description": "Presença de dor de cabeça"},
+    {"id": "dor_cabeca_nao", "attribute": "dor_cabeca", "value": "nao", "description": "Ausência de dor de cabeça"},
+    {"id": "dor_muscular_sim", "attribute": "dor_muscular", "value": "sim", "description": "Presença de dores musculares"},
+    {"id": "dor_muscular_nao", "attribute": "dor_muscular", "value": "nao", "description": "Ausência de dores musculares"},
+    {"id": "coriza_sim", "attribute": "coriza", "value": "sim", "description": "Presença de coriza/nariz escorrendo"},
+    {"id": "coriza_nao", "attribute": "coriza", "value": "nao", "description": "Ausência de coriza"},
+    {"id": "espirro_sim", "attribute": "espirro", "value": "sim", "description": "Presença de espirros frequentes"},
+    {"id": "espirro_nao", "attribute": "espirro", "value": "nao", "description": "Ausência de espirros"},
+    {"id": "dor_garganta_sim", "attribute": "dor_garganta", "value": "sim", "description": "Presença de dor de garganta"},
+    {"id": "dor_garganta_nao", "attribute": "dor_garganta", "value": "nao", "description": "Ausência de dor de garganta"},
+    {"id": "falta_ar_sim", "attribute": "falta_ar", "value": "sim", "description": "Presença de falta de ar"},
+    {"id": "falta_ar_nao", "attribute": "falta_ar", "value": "nao", "description": "Ausência de falta de ar"},
+    {"id": "dor_peito_sim", "attribute": "dor_peito", "value": "sim", "description": "Presença de dor no peito"},
+    {"id": "dor_peito_nao", "attribute": "dor_peito", "value": "nao", "description": "Ausência de dor no peito"},
+    {"id": "nausea_sim", "attribute": "nausea", "value": "sim", "description": "Presença de náusea"},
+    {"id": "nausea_nao", "attribute": "nausea", "value": "nao", "description": "Ausência de náusea"},
+    {"id": "vomito_sim", "attribute": "vomito", "value": "sim", "description": "Presença de vômito"},
+    {"id": "vomito_nao", "attribute": "vomito", "value": "nao", "description": "Ausência de vômito"},
+    {"id": "diarreia_sim", "attribute": "diarreia", "value": "sim", "description": "Presença de diarreia"},
+    {"id": "diarreia_nao", "attribute": "diarreia", "value": "nao", "description": "Ausência de diarreia"},
+    {"id": "dor_abdominal_sim", "attribute": "dor_abdominal", "value": "sim", "description": "Presença de dor abdominal"},
+    {"id": "dor_abdominal_nao", "attribute": "dor_abdominal", "value": "nao", "description": "Ausência de dor abdominal"},
+    {"id": "ictericia_sim", "attribute": "ictericia", "value": "sim", "description": "Presença de icterícia (pele/olhos amarelados)"},
+    {"id": "ictericia_nao", "attribute": "ictericia", "value": "nao", "description": "Ausência de icterícia"},
+    {"id": "manchas_pele_sim", "attribute": "manchas_pele", "value": "sim", "description": "Presença de manchas na pele"},
+    {"id": "manchas_pele_nao", "attribute": "manchas_pele", "value": "nao", "description": "Ausência de manchas na pele"},
+    {"id": "dor_articulacao_sim", "attribute": "dor_articulacao", "value": "sim", "description": "Presença de dores nas articulações"},
+    {"id": "dor_articulacao_nao", "attribute": "dor_articulacao", "value": "nao", "description": "Ausência de dores nas articulações"},
+    {"id": "rigidez_nuca_sim", "attribute": "rigidez_nuca", "value": "sim", "description": "Presença de rigidez na nuca"},
+    {"id": "rigidez_nuca_nao", "attribute": "rigidez_nuca", "value": "nao", "description": "Ausência de rigidez na nuca"},
+    {"id": "confusao_mental_sim", "attribute": "confusao_mental", "value": "sim", "description": "Presença de confusão mental"},
+    {"id": "confusao_mental_nao", "attribute": "confusao_mental", "value": "nao", "description": "Ausência de confusão mental"},
+    {"id": "sensibilidade_luz_sim", "attribute": "sensibilidade_luz", "value": "sim", "description": "Presença de sensibilidade à luz (fotofobia)"},
+    {"id": "sensibilidade_luz_nao", "attribute": "sensibilidade_luz", "value": "nao", "description": "Ausência de sensibilidade à luz"},
+    {"id": "tosse_sangue_sim", "attribute": "tosse_sangue", "value": "sim", "description": "Presença de sangue na tosse (hemoptise)"},
+    {"id": "tosse_sangue_nao", "attribute": "tosse_sangue", "value": "nao", "description": "Ausência de sangue na tosse"},
+    {"id": "suor_noturno_sim", "attribute": "suor_noturno", "value": "sim", "description": "Presença de suores noturnos"},
+    {"id": "suor_noturno_nao", "attribute": "suor_noturno", "value": "nao", "description": "Ausência de suores noturnos"},
+    {"id": "perda_peso_sim", "attribute": "perda_peso", "value": "sim", "description": "Perda de peso inexplicada"},
+    {"id": "perda_peso_nao", "attribute": "perda_peso", "value": "nao", "description": "Sem perda de peso"},
+    {"id": "urina_escura_sim", "attribute": "urina_escura", "value": "sim", "description": "Urina de cor escura"},
+    {"id": "urina_escura_nao", "attribute": "urina_escura", "value": "nao", "description": "Urina de cor normal"},
+    {"id": "fadiga_sim", "attribute": "fadiga", "value": "sim", "description": "Presença de fadiga/cansaço extremo"},
+    {"id": "fadiga_nao", "attribute": "fadiga", "value": "nao", "description": "Ausência de fadiga"},
+    {"id": "perda_olfato_sim", "attribute": "perda_olfato", "value": "sim", "description": "Perda de olfato (anosmia)"},
+    {"id": "perda_olfato_nao", "attribute": "perda_olfato", "value": "nao", "description": "Olfato preservado"},
+    {"id": "perda_paladar_sim", "attribute": "perda_paladar", "value": "sim", "description": "Perda de paladar (ageusia)"},
+    {"id": "perda_paladar_nao", "attribute": "perda_paladar", "value": "nao", "description": "Paladar preservado"},
+    {"id": "sangramento_sim", "attribute": "sangramento", "value": "sim", "description": "Presença de sangramento anormal"},
+    {"id": "sangramento_nao", "attribute": "sangramento", "value": "nao", "description": "Ausência de sangramento anormal"},
+    {"id": "olhos_vermelhos_sim", "attribute": "olhos_vermelhos", "value": "sim", "description": "Presença de olhos vermelhos"},
+    {"id": "olhos_vermelhos_nao", "attribute": "olhos_vermelhos", "value": "nao", "description": "Ausência de olhos vermelhos"},
+    {"id": "coceira_sim", "attribute": "coceira", "value": "sim", "description": "Presença de coceira/prurido"},
+    {"id": "coceira_nao", "attribute": "coceira", "value": "nao", "description": "Ausência de coceira"},
+    {"id": "inchaço_sim", "attribute": "inchaço", "value": "sim", "description": "Presença de inchaço"},
+    {"id": "inchaço_nao", "attribute": "inchaço", "value": "nao", "description": "Ausência de inchaço"},
+    {"id": "fezes_claras_sim", "attribute": "fezes_claras", "value": "sim", "description": "Fezes de coloração clara (acolia fecal)"},
+    {"id": "fezes_claras_nao", "attribute": "fezes_claras", "value": "nao", "description": "Fezes de coloração normal"}
+  ],
+  "rules": [
+    {
+      "id": "R01",
+      "name": "Gripe - Critério Principal",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "tosse", "value": "sim"},
+        {"attribute": "dor_muscular", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "gripe"},
+      "explanation": "Febre alta, tosse e dores musculares são os três sintomas clássicos da gripe (influenza).",
+      "treatment": "Repouso, hidratação, antitérmicos (paracetamol/ibuprofeno). Em casos graves, antivirais como oseltamivir. Procure médico se os sintomas persistirem mais de 7 dias."
+    },
+    {
+      "id": "R02",
+      "name": "Gripe - Sintoma adicional cefaleia",
+      "conditions": [
+        {"attribute": "suspeita", "value": "gripe"},
+        {"attribute": "dor_cabeca", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "gripe"},
+      "explanation": "Cefaleia intensa associada à gripe reforça o diagnóstico.",
+      "treatment": "Analgésicos para dor de cabeça. Manter o diagnóstico de gripe."
+    },
+    {
+      "id": "R03",
+      "name": "Resfriado Comum",
+      "conditions": [
+        {"attribute": "coriza", "value": "sim"},
+        {"attribute": "espirro", "value": "sim"},
+        {"attribute": "febre", "value": "ausente"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "resfriado_comum"},
+      "explanation": "Coriza e espirros frequentes sem febre são características do resfriado comum (rinovirose).",
+      "treatment": "Repouso, hidratação abundante, descongestionantes nasais. Geralmente resolve em 7-10 dias sem tratamento específico."
+    },
+    {
+      "id": "R04",
+      "name": "Resfriado com dor de garganta",
+      "conditions": [
+        {"attribute": "suspeita", "value": "resfriado_comum"},
+        {"attribute": "dor_garganta", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "resfriado_comum"},
+      "explanation": "A dor de garganta associada à coriza e espirros sem febre confirma o resfriado comum.",
+      "treatment": "Gargarejo com água morna e sal. Anti-inflamatórios para dor. Mel para aliviar a garganta."
+    },
+    {
+      "id": "R05",
+      "name": "COVID-19 - Critério Principal",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "perda_olfato", "value": "sim"},
+        {"attribute": "perda_paladar", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "covid19"},
+      "explanation": "A perda simultânea de olfato e paladar com febre é sintoma altamente característico da COVID-19.",
+      "treatment": "Isolamento imediato, notificação de contatos. Monitorar oxigenação. Procurar atendimento médico urgente se saturação < 94% ou dificuldade respiratória."
+    },
+    {
+      "id": "R06",
+      "name": "COVID-19 - Com falta de ar",
+      "conditions": [
+        {"attribute": "suspeita", "value": "covid19"},
+        {"attribute": "falta_ar", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "covid19_grave"},
+      "explanation": "Falta de ar no contexto de COVID-19 indica possível comprometimento pulmonar grave.",
+      "treatment": "URGENTE: Procure pronto-socorro imediatamente. Pode necessitar de suplementação de oxigênio ou internação hospitalar."
+    },
+    {
+      "id": "R07",
+      "name": "COVID-19 - Tosse seca característica",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "tipo_tosse", "value": "seca"},
+        {"attribute": "fadiga", "value": "sim"},
+        {"attribute": "perda_olfato", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "covid19"},
+      "explanation": "Tosse seca persistente, febre, fadiga intensa e perda de olfato formam o quadro típico de COVID-19.",
+      "treatment": "Isolamento, hidratação, monitoramento dos sintomas e oxigenação. Consulte médico."
+    },
+    {
+      "id": "R08",
+      "name": "Pneumonia - Critério Principal",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "tosse", "value": "sim"},
+        {"attribute": "falta_ar", "value": "sim"},
+        {"attribute": "dor_peito", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "pneumonia"},
+      "explanation": "A combinação de febre alta, tosse, falta de ar e dor torácica sugere fortemente pneumonia.",
+      "treatment": "Requer avaliação médica urgente. Antibióticos (se bacteriana), antifúngicos (se fúngica) ou antivirais. Pode necessitar hospitalização."
+    },
+    {
+      "id": "R09",
+      "name": "Pneumonia - Com tosse produtiva",
+      "conditions": [
+        {"attribute": "suspeita", "value": "pneumonia"},
+        {"attribute": "tipo_tosse", "value": "produtiva"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "pneumonia_bacteriana"},
+      "explanation": "Tosse produtiva (com catarro) no contexto de pneumonia sugere etiologia bacteriana.",
+      "treatment": "Antibioticoterapia prescrita por médico. Amoxicilina ou azitromicina são comuns. Repouso e hidratação."
+    },
+    {
+      "id": "R10",
+      "name": "Dengue - Critério Principal",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "dor_cabeca", "value": "sim"},
+        {"attribute": "dor_articulacao", "value": "sim"},
+        {"attribute": "manchas_pele", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "dengue"},
+      "explanation": "Febre alta, cefaleia intensa, dores articulares e manchas na pele são os sinais clássicos da dengue.",
+      "treatment": "Hidratação intensa, paracetamol para febre (NUNCA use AAS ou ibuprofeno). Repouso. Monitorar sinais de alerta: sangramento, vômito, dor abdominal intensa."
+    },
+    {
+      "id": "R11",
+      "name": "Dengue - Com sangramento",
+      "conditions": [
+        {"attribute": "suspeita", "value": "dengue"},
+        {"attribute": "sangramento", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "dengue_grave"},
+      "explanation": "Sangramento associado à dengue indica forma hemorrágica grave, com risco de vida.",
+      "treatment": "EMERGÊNCIA MÉDICA. Internação hospitalar imediata. Transfusão de plaquetas pode ser necessária."
+    },
+    {
+      "id": "R12",
+      "name": "Dengue - Com dor retrorbital",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "dor_cabeca", "value": "sim"},
+        {"attribute": "olhos_vermelhos", "value": "sim"},
+        {"attribute": "dor_articulacao", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "dengue"},
+      "explanation": "Dor ocular, febre e artralgia são característicos da dengue.",
+      "treatment": "Hidratação, paracetamol. Evitar AAS. Consultar médico."
+    },
+    {
+      "id": "R13",
+      "name": "Zika vírus",
+      "conditions": [
+        {"attribute": "febre", "value": "moderada"},
+        {"attribute": "manchas_pele", "value": "sim"},
+        {"attribute": "coceira", "value": "sim"},
+        {"attribute": "olhos_vermelhos", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "zika"},
+      "explanation": "Febre moderada, exantema pruriginoso e conjuntivite são os sintomas característicos do Zika vírus.",
+      "treatment": "Tratamento de suporte: analgésicos, anti-histamínicos para coceira, repouso e hidratação. ATENÇÃO especial para gestantes: Zika causa microcefalia fetal."
+    },
+    {
+      "id": "R14",
+      "name": "Chikungunya",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "dor_articulacao", "value": "sim"},
+        {"attribute": "manchas_pele", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "chikungunya"},
+      "explanation": "Febre alta com artralgia intensa e erupção cutânea são os sinais típicos do Chikungunya.",
+      "treatment": "Analgésicos e anti-inflamatórios para dor articular. Repouso. A dor articular pode persistir por meses. Não há antivirais específicos."
+    },
+    {
+      "id": "R15",
+      "name": "Malária - Critério Principal",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "calafrio", "value": "sim"},
+        {"attribute": "suor_noturno", "value": "sim"},
+        {"attribute": "fadiga", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "malaria"},
+      "explanation": "O ciclo clássico de febre, calafrios e sudorese com fadiga intensa é altamente sugestivo de malária.",
+      "treatment": "Antimaláricos específicos (cloroquina, artemeterlumefantrina) conforme tipo de Plasmodium. Tratamento obrigatoriamente supervisionado por médico."
+    },
+    {
+      "id": "R16",
+      "name": "Tuberculose - Critério Principal",
+      "conditions": [
+        {"attribute": "tosse", "value": "sim"},
+        {"attribute": "suor_noturno", "value": "sim"},
+        {"attribute": "perda_peso", "value": "sim"},
+        {"attribute": "fadiga", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "tuberculose"},
+      "explanation": "Tosse crônica, sudorese noturna, emagrecimento e fadiga formam a tétrade clássica da tuberculose.",
+      "treatment": "Esquema RIPE (Rifampicina, Isoniazida, Pirazinamida, Etambutol) por 6 meses. Tratamento supervisionado. Notificação compulsória."
+    },
+    {
+      "id": "R17",
+      "name": "Tuberculose - Com hemoptise",
+      "conditions": [
+        {"attribute": "suspeita", "value": "tuberculose"},
+        {"attribute": "tosse_sangue", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "tuberculose_avancada"},
+      "explanation": "Hemoptise (sangue na tosse) no contexto de tuberculose indica doença avançada.",
+      "treatment": "Internação hospitalar urgente. Esquema RIPE intensificado. Isolamento respiratório."
+    },
+    {
+      "id": "R18",
+      "name": "Meningite - Critério Principal",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "rigidez_nuca", "value": "sim"},
+        {"attribute": "dor_cabeca", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "meningite"},
+      "explanation": "A tríade clássica de meningite é febre, rigidez nucal e cefaleia intensa.",
+      "treatment": "EMERGÊNCIA MÉDICA. Internação imediata. Antibióticos endovenosos (ceftriaxona) e/ou antivirais. Cada hora é crítica."
+    },
+    {
+      "id": "R19",
+      "name": "Meningite - Com confusão mental",
+      "conditions": [
+        {"attribute": "suspeita", "value": "meningite"},
+        {"attribute": "confusao_mental", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "meningite_grave"},
+      "explanation": "Alteração do nível de consciência na meningite indica comprometimento grave do sistema nervoso central.",
+      "treatment": "EMERGÊNCIA MÁXIMA. UTI imediata. Corticosteroides + antibióticos endovenosos."
+    },
+    {
+      "id": "R20",
+      "name": "Meningite - Com fotofobia",
+      "conditions": [
+        {"attribute": "suspeita", "value": "meningite"},
+        {"attribute": "sensibilidade_luz", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "meningite"},
+      "explanation": "Fotofobia é sinal meníngeo clássico que reforça o diagnóstico de meningite.",
+      "treatment": "Internação urgente. Punção lombar para diagnóstico definitivo. Antibióticos EV."
+    },
+    {
+      "id": "R21",
+      "name": "Hepatite A - Critério Principal",
+      "conditions": [
+        {"attribute": "ictericia", "value": "sim"},
+        {"attribute": "nausea", "value": "sim"},
+        {"attribute": "dor_abdominal", "value": "sim"},
+        {"attribute": "fadiga", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "hepatite_a"},
+      "explanation": "Icterícia com náusea, dor abdominal em hipocôndrio direito e fadiga são sintomas típicos da hepatite A.",
+      "treatment": "Tratamento de suporte: repouso, dieta leve, hidratação. Evitar álcool e medicamentos hepatotóxicos. Geralmente autolimitada."
+    },
+    {
+      "id": "R22",
+      "name": "Hepatite B ou C - Crônica",
+      "conditions": [
+        {"attribute": "ictericia", "value": "sim"},
+        {"attribute": "urina_escura", "value": "sim"},
+        {"attribute": "fezes_claras", "value": "sim"},
+        {"attribute": "perda_peso", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "hepatite_bc"},
+      "explanation": "Icterícia com colúria, acolia fecal e perda de peso sugerem hepatite B ou C ou obstrução biliar.",
+      "treatment": "Avaliação médica urgente com hepatologista. Antivirais específicos (tenofovir para HBV, sofosbuvir para HCV). Monitorar função hepática."
+    },
+    {
+      "id": "R23",
+      "name": "Gastroenterite - Critério Principal",
+      "conditions": [
+        {"attribute": "vomito", "value": "sim"},
+        {"attribute": "diarreia", "value": "sim"},
+        {"attribute": "nausea", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "gastroenterite"},
+      "explanation": "Vômitos, diarreia e náusea são os sintomas clássicos da gastroenterite viral ou bacteriana.",
+      "treatment": "Hidratação oral intensa (soro de reidratação oral). Dieta BRAT (banana, arroz, torrada). Probióticos. Médico se sinais de desidratação grave."
+    },
+    {
+      "id": "R24",
+      "name": "Gastroenterite - Com febre",
+      "conditions": [
+        {"attribute": "suspeita", "value": "gastroenterite"},
+        {"attribute": "febre", "value": "alta"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "gastroenterite_bacteriana"},
+      "explanation": "Febre alta associada à gastroenterite sugere etiologia bacteriana (salmonela, shigela).",
+      "treatment": "Possível uso de antibióticos conforme avaliação médica. Hidratação venosa se necessário."
+    },
+    {
+      "id": "R25",
+      "name": "Apendicite - Critério Principal",
+      "conditions": [
+        {"attribute": "dor_abdominal", "value": "sim"},
+        {"attribute": "febre", "value": "moderada"},
+        {"attribute": "nausea", "value": "sim"},
+        {"attribute": "vomito", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "apendicite"},
+      "explanation": "Dor na fossa ilíaca direita com febre, náusea e vômito sugerem apendicite aguda.",
+      "treatment": "CIRURGIA DE URGÊNCIA. Apendicectomia laparoscópica ou convencional. Antibióticos pré-operatórios."
+    },
+    {
+      "id": "R26",
+      "name": "Faringite Streptocócica",
+      "conditions": [
+        {"attribute": "dor_garganta", "value": "sim"},
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "coriza", "value": "nao"},
+        {"attribute": "tosse", "value": "nao"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "faringite_streptococica"},
+      "explanation": "Dor de garganta intensa com febre sem coriza ou tosse é altamente sugestiva de faringite estreptocócica.",
+      "treatment": "Penicilina ou amoxicilina por 10 dias. Tratamento é importante para prevenir febre reumática."
+    },
+    {
+      "id": "R27",
+      "name": "Mononucleose",
+      "conditions": [
+        {"attribute": "dor_garganta", "value": "sim"},
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "fadiga", "value": "sim"},
+        {"attribute": "inchaço", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "mononucleose"},
+      "explanation": "Faringite grave, febre, fadiga intensa e linfadenomegalia (gânglios inchados) são clássicos da mononucleose infecciosa.",
+      "treatment": "Repouso absoluto. Evitar esportes de contato (risco de ruptura esplênica). Analgésicos. Não usar ampicilina."
+    },
+    {
+      "id": "R28",
+      "name": "Sinusite",
+      "conditions": [
+        {"attribute": "coriza", "value": "sim"},
+        {"attribute": "dor_cabeca", "value": "sim"},
+        {"attribute": "febre", "value": "moderada"},
+        {"attribute": "dor_garganta", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "sinusite"},
+      "explanation": "Coriza com cefaleia frontal, febre baixa e dor facial sugerem sinusite.",
+      "treatment": "Lavagem nasal, descongestionantes, analgésicos. Antibióticos somente se bacteriana (>10 dias ou piora após melhora inicial)."
+    },
+    {
+      "id": "R29",
+      "name": "Bronquite",
+      "conditions": [
+        {"attribute": "tosse", "value": "sim"},
+        {"attribute": "tipo_tosse", "value": "produtiva"},
+        {"attribute": "falta_ar", "value": "sim"},
+        {"attribute": "febre", "value": "ausente"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "bronquite"},
+      "explanation": "Tosse produtiva crônica com dispneia sem febre sugere bronquite.",
+      "treatment": "Broncodilatadores inalatórios, mucolíticos, fisioterapia respiratória. Cessação do tabagismo é fundamental."
+    },
+    {
+      "id": "R30",
+      "name": "Asma",
+      "conditions": [
+        {"attribute": "falta_ar", "value": "sim"},
+        {"attribute": "tipo_tosse", "value": "seca"},
+        {"attribute": "dor_peito", "value": "sim"},
+        {"attribute": "febre", "value": "ausente"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "asma"},
+      "explanation": "Dispneia episódica com tosse seca e aperto no peito sem febre são clássicos da asma brônquica.",
+      "treatment": "Broncodilatadores de curta ação (salbutamol) para crises. Corticosteroides inalatórios para manutenção. Evitar gatilhos (poeira, mofo, animais)."
+    },
+    {
+      "id": "R31",
+      "name": "COVID-19 - Sem perda de olfato",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "tipo_tosse", "value": "seca"},
+        {"attribute": "fadiga", "value": "sim"},
+        {"attribute": "dor_muscular", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "covid19"},
+      "explanation": "Febre, tosse seca, fadiga e mialgia, mesmo sem perda de olfato, são compatíveis com COVID-19.",
+      "treatment": "Isolamento, monitorar saturação de oxigênio. Consultar médico para avaliação de antivirais (nirmatrelvir/ritonavir)."
+    },
+    {
+      "id": "R32",
+      "name": "Leptospirose",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "dor_muscular", "value": "sim"},
+        {"attribute": "olhos_vermelhos", "value": "sim"},
+        {"attribute": "ictericia", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "leptospirose"},
+      "explanation": "Febre, mialgia, conjuntivite e icterícia após exposição à água de enchente são sinais de leptospirose.",
+      "treatment": "Antibióticos: doxiciclina (leve) ou penicilina/ampicilina EV (grave). Hospitalização em casos graves (Doença de Weil)."
+    },
+    {
+      "id": "R33",
+      "name": "Leptospirose - Grave",
+      "conditions": [
+        {"attribute": "suspeita", "value": "leptospirose"},
+        {"attribute": "falta_ar", "value": "sim"},
+        {"attribute": "confusao_mental", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "leptospirose_grave"},
+      "explanation": "Insuficiência respiratória e encefalopatia indicam leptospirose grave (Síndrome de Weil).",
+      "treatment": "UTI urgente. Suporte dialítico se insuficiência renal. Antibióticos EV."
+    },
+    {
+      "id": "R34",
+      "name": "Rubéola",
+      "conditions": [
+        {"attribute": "febre", "value": "moderada"},
+        {"attribute": "manchas_pele", "value": "sim"},
+        {"attribute": "dor_articulacao", "value": "sim"},
+        {"attribute": "inchaço", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "rubeola"},
+      "explanation": "Exantema maculopapular, febre baixa, artralgia e linfadenopatia retroauricular são típicos da rubéola.",
+      "treatment": "Tratamento de suporte: repouso, analgésicos. ATENÇÃO: gestantes devem evitar contato. Causa malformações fetais graves."
+    },
+    {
+      "id": "R35",
+      "name": "Sarampo",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "manchas_pele", "value": "sim"},
+        {"attribute": "tosse", "value": "sim"},
+        {"attribute": "olhos_vermelhos", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "sarampo"},
+      "explanation": "Os 3 C's do sarampo: Cough (tosse), Coryza (coriza), Conjunctivitis (olhos vermelhos) + exantema.",
+      "treatment": "Isolamento, repouso, vitamina A. Monitorar complicações (pneumonia, encefalite). Notificação compulsória."
+    },
+    {
+      "id": "R36",
+      "name": "Varicela (Catapora)",
+      "conditions": [
+        {"attribute": "febre", "value": "moderada"},
+        {"attribute": "manchas_pele", "value": "sim"},
+        {"attribute": "coceira", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "varicela"},
+      "explanation": "Exantema vesicular pruriginoso com febre baixa é clássico da varicela (catapora).",
+      "treatment": "Anti-histamínicos para coceira. Aciclovir em casos graves ou imunodeprimidos. Não coçar as lesões para evitar cicatrizes."
+    },
+    {
+      "id": "R37",
+      "name": "Conjuntivite",
+      "conditions": [
+        {"attribute": "olhos_vermelhos", "value": "sim"},
+        {"attribute": "coceira", "value": "sim"},
+        {"attribute": "febre", "value": "ausente"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "conjuntivite"},
+      "explanation": "Olhos vermelhos e coceira sem febre sugerem conjuntivite alérgica ou viral.",
+      "treatment": "Colírios anti-histamínicos (alérgica) ou antibióticos (bacteriana). Compressa fria. Evitar coçar os olhos."
+    },
+    {
+      "id": "R38",
+      "name": "Gripe com complicação respiratória",
+      "conditions": [
+        {"attribute": "suspeita", "value": "gripe"},
+        {"attribute": "falta_ar", "value": "sim"},
+        {"attribute": "dor_peito", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "gripe_complicada"},
+      "explanation": "Falta de ar e dor torácica na gripe indicam possível pneumonia viral como complicação.",
+      "treatment": "Avaliação médica urgente. Radiografia de tórax. Possível hospitalização e antivirais."
+    },
+    {
+      "id": "R39",
+      "name": "Febre Amarela",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "ictericia", "value": "sim"},
+        {"attribute": "sangramento", "value": "sim"},
+        {"attribute": "vomito", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "febre_amarela"},
+      "explanation": "Febre alta, icterícia, sangramento e vômito são sinais da fase tóxica da febre amarela.",
+      "treatment": "EMERGÊNCIA. Internação em UTI. Tratamento de suporte intensivo. Notificação compulsória imediata."
+    },
+    {
+      "id": "R40",
+      "name": "Hantavirose",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "falta_ar", "value": "sim"},
+        {"attribute": "dor_muscular", "value": "sim"},
+        {"attribute": "tosse_sangue", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "hantavirose"},
+      "explanation": "Febre, mialgia e síndrome pulmonar grave após exposição a roedores sugerem hantavirose.",
+      "treatment": "EMERGÊNCIA. UTI imediata. Ventilação mecânica frequentemente necessária. Alta mortalidade."
+    },
+    {
+      "id": "R41",
+      "name": "Sinusite - Crônica",
+      "conditions": [
+        {"attribute": "coriza", "value": "sim"},
+        {"attribute": "dor_cabeca", "value": "sim"},
+        {"attribute": "tosse", "value": "sim"},
+        {"attribute": "perda_olfato", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "sinusite_cronica"},
+      "explanation": "Sintomas persistentes de coriza, cefaleia, tosse e perda de olfato sugerem sinusite crônica.",
+      "treatment": "Lavagem nasal, corticosteroide nasal, antibiótico prolongado. Avaliar cirurgia sinusal funcional."
+    },
+    {
+      "id": "R42",
+      "name": "Pneumonia - Atípica",
+      "conditions": [
+        {"attribute": "febre", "value": "moderada"},
+        {"attribute": "tipo_tosse", "value": "seca"},
+        {"attribute": "fadiga", "value": "sim"},
+        {"attribute": "dor_cabeca", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "pneumonia_atipica"},
+      "explanation": "Febre baixa, tosse seca, fadiga e cefaleia sugerem pneumonia atípica (Mycoplasma, Chlamydia).",
+      "treatment": "Macrolídeos (azitromicina) ou tetraciclinas (doxiciclina). Tratamento por 5-14 dias conforme resposta."
+    },
+    {
+      "id": "R43",
+      "name": "Malária - Com vômito",
+      "conditions": [
+        {"attribute": "suspeita", "value": "malaria"},
+        {"attribute": "vomito", "value": "sim"},
+        {"attribute": "nausea", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "malaria_falciparum"},
+      "explanation": "Vômitos e náusea no contexto da malária sugerem forma mais grave (P. falciparum).",
+      "treatment": "Antimaláricos EV (artesunato). Hospitalização obrigatória. Monitorar glicemia e estado neurológico."
+    },
+    {
+      "id": "R44",
+      "name": "Dengue - Sem manchas",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "dor_cabeca", "value": "sim"},
+        {"attribute": "dor_articulacao", "value": "sim"},
+        {"attribute": "dor_muscular", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "dengue"},
+      "explanation": "A dengue pode se apresentar sem exantema; febre alta com artralgia e mialgia intensa são suficientes para suspeita.",
+      "treatment": "Hidratação, paracetamol (nunca AAS). Monitorar hematócrito e plaquetas. Consultar médico."
+    },
+    {
+      "id": "R45",
+      "name": "Gripe - Sem tosse",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "dor_muscular", "value": "sim"},
+        {"attribute": "dor_cabeca", "value": "sim"},
+        {"attribute": "fadiga", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "gripe"},
+      "explanation": "Febre alta de início súbito com mialgia intensa, cefaleia e prostração são característicos da gripe.",
+      "treatment": "Repouso, hidratação, antitérmicos. Antivirais nas primeiras 48h podem reduzir duração."
+    },
+    {
+      "id": "R46",
+      "name": "Hepatite A - Sem icterícia",
+      "conditions": [
+        {"attribute": "nausea", "value": "sim"},
+        {"attribute": "vomito", "value": "sim"},
+        {"attribute": "fadiga", "value": "sim"},
+        {"attribute": "febre", "value": "moderada"},
+        {"attribute": "dor_abdominal", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "hepatite_a"},
+      "explanation": "A hepatite A pode cursar sem icterícia inicialmente; náusea, vômito e fadiga com dor em hipocôndrio direito são sugestivos.",
+      "treatment": "Repouso, dieta pobre em gorduras. Evitar álcool e hepatotóxicos. Vacinação de contatos."
+    },
+    {
+      "id": "R47",
+      "name": "Tuberculose - Pulmonar Ativa",
+      "conditions": [
+        {"attribute": "tosse", "value": "sim"},
+        {"attribute": "tosse_sangue", "value": "sim"},
+        {"attribute": "perda_peso", "value": "sim"},
+        {"attribute": "suor_noturno", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "tuberculose"},
+      "explanation": "Hemoptise, emagrecimento, tosse crônica e sudorese noturna são sinal de alerta máximo para tuberculose ativa.",
+      "treatment": "Esquema RIPE por 6 meses. Isolamento respiratório. Investigação de contatos. Notificação compulsória."
+    },
+    {
+      "id": "R48",
+      "name": "Meningite Viral",
+      "conditions": [
+        {"attribute": "febre", "value": "moderada"},
+        {"attribute": "rigidez_nuca", "value": "sim"},
+        {"attribute": "sensibilidade_luz", "value": "sim"},
+        {"attribute": "confusao_mental", "value": "nao"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "meningite_viral"},
+      "explanation": "Meningismo com febre moderada sem alteração de consciência sugere meningite viral (enteroviroses, herpes).",
+      "treatment": "Internação para punção lombar diagnóstica. Aciclovir se HSV. Geralmente autolimitada em 7-10 dias."
+    },
+    {
+      "id": "R49",
+      "name": "Asma - Crise Grave",
+      "conditions": [
+        {"attribute": "suspeita", "value": "asma"},
+        {"attribute": "dor_peito", "value": "sim"},
+        {"attribute": "confusao_mental", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "asma_grave"},
+      "explanation": "Crise asmática com dor torácica e alteração de consciência indica status asmático grave.",
+      "treatment": "EMERGÊNCIA. Corticosteroides sistêmicos EV, broncodilatadores inalatórios frequentes. Possível intubação."
+    },
+    {
+      "id": "R50",
+      "name": "Gastroenterite - Desidratação",
+      "conditions": [
+        {"attribute": "suspeita", "value": "gastroenterite"},
+        {"attribute": "confusao_mental", "value": "sim"},
+        {"attribute": "fadiga", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "desidratacao_grave"},
+      "explanation": "Confusão mental e prostração no contexto de gastroenterite indicam desidratação grave.",
+      "treatment": "URGENTE. Hidratação venosa imediata. Internação para correção de eletrólitos."
+    },
+    {
+      "id": "R51",
+      "name": "Varicela - Com infecção bacteriana",
+      "conditions": [
+        {"attribute": "suspeita", "value": "varicela"},
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "inchaço", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "varicela_sobreinfectada"},
+      "explanation": "Febre alta persistente e edema nas lesões de varicela indicam sobreinfecção bacteriana.",
+      "treatment": "Antibióticos (cefalexina ou amoxicilina-clavulanato). Cuidados com a pele. Avaliar hospitalização."
+    },
+    {
+      "id": "R52",
+      "name": "Leptospirose - Inicial",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "dor_muscular", "value": "sim"},
+        {"attribute": "dor_cabeca", "value": "sim"},
+        {"attribute": "olhos_vermelhos", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "leptospirose"},
+      "explanation": "Febre, mialgia, cefaleia e conjuntivite após exposição à enchente ou água contaminada sugerem leptospirose.",
+      "treatment": "Doxiciclina ou amoxicilina para casos leves. Monitorar função renal e hepática. Internação se piora."
+    },
+    {
+      "id": "R53",
+      "name": "Apendicite - Diagnóstico Diferencial",
+      "conditions": [
+        {"attribute": "dor_abdominal", "value": "sim"},
+        {"attribute": "febre", "value": "moderada"},
+        {"attribute": "vomito", "value": "sim"},
+        {"attribute": "diarreia", "value": "nao"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "apendicite"},
+      "explanation": "Dor abdominal localizada com febre e vômito sem diarreia tem alta probabilidade de ser apendicite.",
+      "treatment": "Avaliação cirúrgica urgente. Exames de imagem (ultrassom, tomografia). Cirurgia na confirmação."
+    },
+    {
+      "id": "R54",
+      "name": "Faringite Viral",
+      "conditions": [
+        {"attribute": "dor_garganta", "value": "sim"},
+        {"attribute": "coriza", "value": "sim"},
+        {"attribute": "tosse", "value": "sim"},
+        {"attribute": "febre", "value": "moderada"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "faringite_viral"},
+      "explanation": "Dor de garganta com coriza, tosse e febre baixa sugere faringite viral (adenovírus, rinovírus).",
+      "treatment": "Tratamento de suporte: gargarejo, mel, analgésicos. Antibióticos não são indicados na forma viral."
+    },
+    {
+      "id": "R55",
+      "name": "Mononucleose - Com exantema",
+      "conditions": [
+        {"attribute": "suspeita", "value": "mononucleose"},
+        {"attribute": "manchas_pele", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "mononucleose"},
+      "explanation": "Exantema maculopapular na mononucleose, especialmente após ampicilina, confirma EBV.",
+      "treatment": "Suspender ampicilina se em uso. Corticosteroides se obstrução de via aérea. Repouso prolongado."
+    },
+    {
+      "id": "R56",
+      "name": "Bronquite - Aguda",
+      "conditions": [
+        {"attribute": "tosse", "value": "sim"},
+        {"attribute": "tipo_tosse", "value": "produtiva"},
+        {"attribute": "febre", "value": "moderada"},
+        {"attribute": "dor_peito", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "bronquite_aguda"},
+      "explanation": "Tosse produtiva com febre moderada e dor torácica sugerem bronquite aguda.",
+      "treatment": "Mucolíticos, broncodilatadores, analgésicos. Antibióticos somente se bacteriana confirmada."
+    },
+    {
+      "id": "R57",
+      "name": "Resfriado com Bronquite",
+      "conditions": [
+        {"attribute": "suspeita", "value": "resfriado_comum"},
+        {"attribute": "tipo_tosse", "value": "produtiva"},
+        {"attribute": "falta_ar", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "resfriado_com_bronquite"},
+      "explanation": "Resfriado evoluindo com tosse produtiva e dispneia indica comprometimento dos brônquios.",
+      "treatment": "Broncodilatadores inalatórios, mucolíticos. Verificar saturação de oxigênio."
+    },
+    {
+      "id": "R58",
+      "name": "Sarampo - Síndrome dos 3C",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "coriza", "value": "sim"},
+        {"attribute": "tosse", "value": "sim"},
+        {"attribute": "olhos_vermelhos", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "sarampo"},
+      "explanation": "A fase prodrômica do sarampo é marcada pelos 3C: Coriza, Tosse e Conjuntivite.",
+      "treatment": "Isolamento, vitamina A, suporte sintomático. Notificação compulsória. Investigar contatos."
+    },
+    {
+      "id": "R59",
+      "name": "COVID-19 - Com manifestação gastrointestinal",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "diarreia", "value": "sim"},
+        {"attribute": "perda_olfato", "value": "sim"},
+        {"attribute": "fadiga", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "covid19"},
+      "explanation": "A COVID-19 pode cursar com diarreia além dos sintomas respiratórios clássicos.",
+      "treatment": "Isolamento, hidratação, monitorar saturação. Consultar médico."
+    },
+    {
+      "id": "R60",
+      "name": "Febre Reumática",
+      "conditions": [
+        {"attribute": "febre", "value": "moderada"},
+        {"attribute": "dor_articulacao", "value": "sim"},
+        {"attribute": "dor_garganta", "value": "sim"},
+        {"attribute": "dor_peito", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "febre_reumatica"},
+      "explanation": "Artrite migratória, cardite e faringite estreptocócica prévia formam o quadro de febre reumática.",
+      "treatment": "Penicilina para erradicar estreptococo. Anti-inflamatórios para artrite. Monitorar função cardíaca."
+    },
+    {
+      "id": "R61",
+      "name": "Chikungunya - Com artralgia persistente",
+      "conditions": [
+        {"attribute": "suspeita", "value": "chikungunya"},
+        {"attribute": "inchaço", "value": "sim"},
+        {"attribute": "fadiga", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "chikungunya_cronica"},
+      "explanation": "Artralgia com edema e fadiga persistentes após fase aguda indicam chikungunya crônica.",
+      "treatment": "Fisioterapia, anti-inflamatórios não hormonais, hidroxicloroquina para casos crônicos."
+    },
+    {
+      "id": "R62",
+      "name": "Rubéola - Adulto",
+      "conditions": [
+        {"attribute": "febre", "value": "moderada"},
+        {"attribute": "manchas_pele", "value": "sim"},
+        {"attribute": "dor_articulacao", "value": "sim"},
+        {"attribute": "inchaço", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "rubeola"},
+      "explanation": "Em adultos, rubéola cursa com artralgia proeminente além do exantema e linfadenopatia.",
+      "treatment": "Tratamento de suporte. Notificação compulsória. URGENTE: afastar gestantes do contato."
+    },
+    {
+      "id": "R63",
+      "name": "Malária - Cerebral",
+      "conditions": [
+        {"attribute": "suspeita", "value": "malaria"},
+        {"attribute": "confusao_mental", "value": "sim"},
+        {"attribute": "febre", "value": "alta"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "malaria_cerebral"},
+      "explanation": "Alteração de consciência na malária indica acometimento cerebral (malária cerebral por P. falciparum).",
+      "treatment": "EMERGÊNCIA MÁXIMA. UTI imediata. Artesunato EV. Alta mortalidade sem tratamento imediato."
+    },
+    {
+      "id": "R64",
+      "name": "Hepatite - Colestática",
+      "conditions": [
+        {"attribute": "ictericia", "value": "sim"},
+        {"attribute": "coceira", "value": "sim"},
+        {"attribute": "fezes_claras", "value": "sim"},
+        {"attribute": "urina_escura", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "hepatite_colestase"},
+      "explanation": "A tríade de icterícia, prurido e colúria com acolia sugere obstrução biliar ou hepatite colestática.",
+      "treatment": "Avaliação urgente com hepatologista e cirurgião. Ultrassom abdominal. CPRE se obstrução."
+    },
+    {
+      "id": "R65",
+      "name": "Pneumonia - Grave",
+      "conditions": [
+        {"attribute": "suspeita", "value": "pneumonia"},
+        {"attribute": "confusao_mental", "value": "sim"},
+        {"attribute": "falta_ar", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "pneumonia_grave"},
+      "explanation": "Pneumonia com confusão mental e dispneia intensa preenche critérios de gravidade (CURB-65 ≥3).",
+      "treatment": "Internação em UTI. Antibióticos EV de amplo espectro. Suporte ventilatório se necessário."
+    },
+    {
+      "id": "R66",
+      "name": "Zika - Em Gestante",
+      "conditions": [
+        {"attribute": "suspeita", "value": "zika"},
+        {"attribute": "febre", "value": "moderada"},
+        {"attribute": "manchas_pele", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "zika_gestante"},
+      "explanation": "Zika em gestante representa risco grave de microcefalia e outras malformações fetais.",
+      "treatment": "ATENÇÃO ESPECIAL. Encaminhamento imediato ao pré-natal de alto risco. Monitoramento fetal por ultrassom."
+    },
+    {
+      "id": "R67",
+      "name": "Faringite - Com abscesso",
+      "conditions": [
+        {"attribute": "suspeita", "value": "faringite_streptococica"},
+        {"attribute": "inchaço", "value": "sim"},
+        {"attribute": "falta_ar", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "abscesso_periamigdaliano"},
+      "explanation": "Inchaço faríngeo progressivo com disfagia e dispneia indica abscesso periamigdaliano.",
+      "treatment": "URGÊNCIA. Drenagem cirúrgica do abscesso. Antibióticos EV. Internação obrigatória."
+    },
+    {
+      "id": "R68",
+      "name": "Dengue - Sem febre (defervescência)",
+      "conditions": [
+        {"attribute": "manchas_pele", "value": "sim"},
+        {"attribute": "sangramento", "value": "sim"},
+        {"attribute": "dor_abdominal", "value": "sim"},
+        {"attribute": "vomito", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "dengue_grave"},
+      "explanation": "Durante a defervescência da dengue, surgem os sinais de alarme: petéquias, dor abdominal e vômitos.",
+      "treatment": "URGÊNCIA HOSPITALAR. Hidratação venosa rigorosa. Monitoramento de hematócrito e plaquetas."
+    },
+    {
+      "id": "R69",
+      "name": "Gripe - Em idoso",
+      "conditions": [
+        {"attribute": "suspeita", "value": "gripe"},
+        {"attribute": "confusao_mental", "value": "sim"},
+        {"attribute": "fadiga", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "gripe_com_complicacao"},
+      "explanation": "Confusão mental e prostração em idoso com gripe indicam risco elevado de complicação.",
+      "treatment": "Internação preventiva. Antivirais precoces (oseltamivir). Monitorar função respiratória e renal."
+    },
+    {
+      "id": "R70",
+      "name": "Tuberculose - Extra-pulmonar",
+      "conditions": [
+        {"attribute": "febre", "value": "moderada"},
+        {"attribute": "suor_noturno", "value": "sim"},
+        {"attribute": "perda_peso", "value": "sim"},
+        {"attribute": "inchaço", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "tuberculose_extrapulmonar"},
+      "explanation": "Febre, sudorese, emagrecimento e linfadenopatia sem tosse sugerem tuberculose extrapulmonar (ganglionar).",
+      "treatment": "Esquema RIPE por 6 meses. Biópsia do linfonodo para diagnóstico definitivo."
+    },
+    {
+      "id": "R71",
+      "name": "Influenza - Com vômito",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "dor_muscular", "value": "sim"},
+        {"attribute": "vomito", "value": "sim"},
+        {"attribute": "diarreia", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "gripe"},
+      "explanation": "A influenza, especialmente em crianças, pode cursar com sintomas gastrointestinais além dos respiratórios.",
+      "treatment": "Hidratação, antitérmicos, oseltamivir nas primeiras 48h. Atenção à desidratação."
+    },
+    {
+      "id": "R72",
+      "name": "Meningite - Com petéquias",
+      "conditions": [
+        {"attribute": "suspeita", "value": "meningite"},
+        {"attribute": "manchas_pele", "value": "sim"},
+        {"attribute": "sangramento", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "meningococcemia"},
+      "explanation": "Petéquias e púrpura na meningite indicam meningococcemia com alto risco de sepse fulminante.",
+      "treatment": "EMERGÊNCIA MÁXIMA. Penicilina ou ceftriaxona EV imediatos. Corticosteroides. UTI urgente."
+    },
+    {
+      "id": "R73",
+      "name": "Pneumonia por COVID-19",
+      "conditions": [
+        {"attribute": "suspeita", "value": "covid19"},
+        {"attribute": "falta_ar", "value": "sim"},
+        {"attribute": "tipo_tosse", "value": "seca"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "pneumonia_covid"},
+      "explanation": "COVID-19 com falta de ar e tosse seca indica pneumonia viral bilateral.",
+      "treatment": "Internação. Avaliação para corticosteroides (dexametasona), anticoagulantes e oxigenoterapia."
+    },
+    {
+      "id": "R74",
+      "name": "Febre Amarela - Fase Inicial",
+      "conditions": [
+        {"attribute": "febre", "value": "alta"},
+        {"attribute": "dor_cabeca", "value": "sim"},
+        {"attribute": "dor_muscular", "value": "sim"},
+        {"attribute": "nausea", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "febre_amarela"},
+      "explanation": "A fase inicial da febre amarela é semelhante à dengue: febre, cefaleia, mialgia e náusea.",
+      "treatment": "Monitoramento rigoroso. Internação preventiva em área endêmica. Evitar AAS. Repouso."
+    },
+    {
+      "id": "R75",
+      "name": "Hantavirose - Fase Cardiopulmonar",
+      "conditions": [
+        {"attribute": "falta_ar", "value": "sim"},
+        {"attribute": "dor_peito", "value": "sim"},
+        {"attribute": "fadiga", "value": "sim"},
+        {"attribute": "febre", "value": "alta"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "hantavirose"},
+      "explanation": "Síndrome cardiopulmonar por hantavírus: dispneia grave, dor torácica e instabilidade hemodinâmica.",
+      "treatment": "UTI imediata. ECMO pode ser necessário. Ribavirina em fase precoce. Mortalidade >50%."
+    },
+    {
+      "id": "R76",
+      "name": "Gastroenterite - Viral",
+      "conditions": [
+        {"attribute": "vomito", "value": "sim"},
+        {"attribute": "diarreia", "value": "sim"},
+        {"attribute": "febre", "value": "ausente"},
+        {"attribute": "dor_abdominal", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "gastroenterite_viral"},
+      "explanation": "Vômito, diarreia e dor abdominal sem febre sugerem gastroenterite viral (norovírus, rotavírus).",
+      "treatment": "Soro de reidratação oral. Dieta leve. Probióticos. Geralmente resolve em 2-3 dias."
+    },
+    {
+      "id": "R77",
+      "name": "Varicela - Adulto Grave",
+      "conditions": [
+        {"attribute": "suspeita", "value": "varicela"},
+        {"attribute": "falta_ar", "value": "sim"},
+        {"attribute": "dor_peito", "value": "sim"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "varicela_pneumonia"},
+      "explanation": "Pneumonia varicela é complicação grave em adultos e imunodeprimidos.",
+      "treatment": "Aciclovir EV. Internação obrigatória. Suporte respiratório se necessário."
+    },
+    {
+      "id": "R78",
+      "name": "Resfriado com Otite",
+      "conditions": [
+        {"attribute": "suspeita", "value": "resfriado_comum"},
+        {"attribute": "dor_cabeca", "value": "sim"},
+        {"attribute": "febre", "value": "moderada"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "resfriado_com_otite"},
+      "explanation": "Febre e dor de cabeça surgindo durante resfriado podem indicar otite média como complicação.",
+      "treatment": "Avaliação otoscópica. Antibióticos se otite bacteriana confirmada. Descongestionantes nasais."
+    },
+    {
+      "id": "R79",
+      "name": "Sinusite com Complicação",
+      "conditions": [
+        {"attribute": "suspeita", "value": "sinusite"},
+        {"attribute": "confusao_mental", "value": "sim"},
+        {"attribute": "febre", "value": "alta"}
+      ],
+      "conclusion": {"attribute": "confirmacao", "value": "sinusite_complicada"},
+      "explanation": "Confusão mental e febre alta na sinusite podem indicar extensão intracraniana (meningite, abscesso cerebral).",
+      "treatment": "EMERGÊNCIA. Internação imediata, tomografia, antibióticos EV de amplo espectro."
+    },
+    {
+      "id": "R80",
+      "name": "COVID-19 - Longa Duração",
+      "conditions": [
+        {"attribute": "fadiga", "value": "sim"},
+        {"attribute": "perda_olfato", "value": "sim"},
+        {"attribute": "dor_cabeca", "value": "sim"},
+        {"attribute": "febre", "value": "ausente"}
+      ],
+      "conclusion": {"attribute": "suspeita", "value": "long_covid"},
+      "explanation": "Sintomas persistentes após COVID-19 como fadiga, perda de olfato e cefaleia sem febre caracterizam o Long COVID.",
+      "treatment": "Reabilitação multidisciplinar. Fisioterapia respiratória, neuro, psicológico. Monitoramento cardiovascular."
+    }
+  ],
+  "hypotheses": [
+    {"id": "gripe", "name": "Gripe (Influenza)", "description": "Infecção viral respiratória aguda causada pelo vírus influenza"},
+    {"id": "resfriado_comum", "name": "Resfriado Comum", "description": "Infecção viral das vias aéreas superiores, geralmente por rinovírus"},
+    {"id": "covid19", "name": "COVID-19", "description": "Doença causada pelo coronavírus SARS-CoV-2"},
+    {"id": "pneumonia", "name": "Pneumonia", "description": "Infecção do parênquima pulmonar"},
+    {"id": "dengue", "name": "Dengue", "description": "Arbovirose transmitida pelo mosquito Aedes aegypti"},
+    {"id": "zika", "name": "Zika Vírus", "description": "Arbovirose transmitida pelo mosquito Aedes aegypti"},
+    {"id": "chikungunya", "name": "Chikungunya", "description": "Arbovirose com artralgia intensa transmitida pelo Aedes aegypti"},
+    {"id": "malaria", "name": "Malária", "description": "Doença parasitária causada por Plasmodium sp., transmitida pelo mosquito Anopheles"},
+    {"id": "tuberculose", "name": "Tuberculose", "description": "Doença infecciosa crônica causada pelo Mycobacterium tuberculosis"},
+    {"id": "meningite", "name": "Meningite", "description": "Inflamação das meninges, podendo ser bacteriana, viral ou fúngica"},
+    {"id": "hepatite_a", "name": "Hepatite A", "description": "Infecção hepática viral de transmissão fecal-oral"},
+    {"id": "hepatite_bc", "name": "Hepatite B/C", "description": "Infecção hepática viral de transmissão sanguínea ou sexual"},
+    {"id": "gastroenterite", "name": "Gastroenterite", "description": "Inflamação do trato gastrointestinal por vírus ou bactérias"},
+    {"id": "apendicite", "name": "Apendicite Aguda", "description": "Inflamação aguda do apêndice vermiforme"},
+    {"id": "faringite_streptococica", "name": "Faringite Estreptocócica", "description": "Infecção bacteriana da faringe por Streptococcus pyogenes"},
+    {"id": "mononucleose", "name": "Mononucleose Infecciosa", "description": "Infecção pelo vírus Epstein-Barr (EBV)"},
+    {"id": "sinusite", "name": "Sinusite", "description": "Inflamação dos seios paranasais"},
+    {"id": "bronquite", "name": "Bronquite", "description": "Inflamação dos brônquios"},
+    {"id": "asma", "name": "Asma Brônquica", "description": "Doença inflamatória crônica das vias aéreas"},
+    {"id": "leptospirose", "name": "Leptospirose", "description": "Infecção bacteriana zoonótica causada por Leptospira spp."},
+    {"id": "rubeola", "name": "Rubéola", "description": "Doença viral exantemática"},
+    {"id": "sarampo", "name": "Sarampo", "description": "Doença viral altamente contagiosa com exantema"},
+    {"id": "varicela", "name": "Varicela (Catapora)", "description": "Infecção pelo vírus varicela-zóster com exantema vesicular"},
+    {"id": "conjuntivite", "name": "Conjuntivite", "description": "Inflamação da conjuntiva ocular"},
+    {"id": "febre_amarela", "name": "Febre Amarela", "description": "Arbovirose grave transmitida pelo Aedes aegypti"},
+    {"id": "hantavirose", "name": "Hantavirose", "description": "Infecção viral grave transmitida por roedores"},
+    {"id": "febre_reumatica", "name": "Febre Reumática", "description": "Doença inflamatória sistêmica pós-estreptocócica"},
+    {"id": "long_covid", "name": "Long COVID", "description": "Síndrome pós-COVID-19 com sintomas persistentes"}
+  ],
+  "questions": {
+    "febre": {
+      "text": "O paciente apresenta febre? Se sim, qual a intensidade?",
+      "options": ["alta (acima de 38.5°C)", "moderada (37.5°C a 38.5°C)", "ausente (temperatura normal)"],
+      "values": ["alta", "moderada", "ausente"]
+    },
+    "tosse": {
+      "text": "O paciente apresenta tosse?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "tipo_tosse": {
+      "text": "Como é a tosse?",
+      "options": ["Seca (sem catarro)", "Produtiva (com catarro/secreção)"],
+      "values": ["seca", "produtiva"],
+      "depends_on": {"attribute": "tosse", "value": "sim"}
+    },
+    "dor_cabeca": {
+      "text": "O paciente apresenta dor de cabeça?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "dor_muscular": {
+      "text": "O paciente apresenta dores musculares?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "coriza": {
+      "text": "O paciente apresenta coriza (nariz escorrendo)?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "espirro": {
+      "text": "O paciente apresenta espirros frequentes?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "dor_garganta": {
+      "text": "O paciente apresenta dor de garganta?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "falta_ar": {
+      "text": "O paciente apresenta falta de ar ou dificuldade para respirar?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "dor_peito": {
+      "text": "O paciente apresenta dor no peito?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "nausea": {
+      "text": "O paciente apresenta náusea?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "vomito": {
+      "text": "O paciente apresenta vômito?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "diarreia": {
+      "text": "O paciente apresenta diarreia?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "dor_abdominal": {
+      "text": "O paciente apresenta dor abdominal?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "ictericia": {
+      "text": "O paciente apresenta icterícia (pele ou olhos amarelados)?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "manchas_pele": {
+      "text": "O paciente apresenta manchas ou erupções na pele?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "dor_articulacao": {
+      "text": "O paciente apresenta dores nas articulações?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "rigidez_nuca": {
+      "text": "O paciente apresenta rigidez na nuca (dificuldade de flexionar o pescoço)?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "confusao_mental": {
+      "text": "O paciente apresenta confusão mental ou alteração de consciência?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "sensibilidade_luz": {
+      "text": "O paciente apresenta sensibilidade excessiva à luz?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "tosse_sangue": {
+      "text": "O paciente tosse sangue ou expectoração com sangue?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "suor_noturno": {
+      "text": "O paciente apresenta suores noturnos intensos?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "perda_peso": {
+      "text": "O paciente apresenta perda de peso inexplicada?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "urina_escura": {
+      "text": "O paciente apresenta urina de cor escura (cor de chá ou coca-cola)?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "fadiga": {
+      "text": "O paciente apresenta fadiga intensa ou cansaço extremo?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "perda_olfato": {
+      "text": "O paciente perdeu o olfato (não consegue sentir cheiros)?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "perda_paladar": {
+      "text": "O paciente perdeu o paladar (não consegue sentir gostos)?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "sangramento": {
+      "text": "O paciente apresenta algum tipo de sangramento anormal (gengiva, nariz, pele)?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "olhos_vermelhos": {
+      "text": "O paciente apresenta olhos vermelhos (conjuntivite)?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "coceira": {
+      "text": "O paciente apresenta coceira (prurido)?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "inchaço": {
+      "text": "O paciente apresenta inchaço (gânglios, articulações ou outras regiões)?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "fezes_claras": {
+      "text": "O paciente apresenta fezes de coloração esbranquiçada ou muito claras?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    },
+    "calafrio": {
+      "text": "O paciente apresenta calafrios intensos?",
+      "options": ["Sim", "Não"],
+      "values": ["sim", "nao"]
+    }
+  }
+}

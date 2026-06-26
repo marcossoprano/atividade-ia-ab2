@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Especialista em Diagnóstico Médico - Dr. IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f766e;
+      --primary-light: #14b8a6;
+      --primary-dark: #134e4a;
+      --secondary: #0369a1;
+      --accent: #f59e0b;
+      --success: #059669;
+      --warning: #d97706;
+      --error: #dc2626;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      padding: 40px 24px;
+      border-radius: var(--radius);
+      margin-bottom: 24px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .header p {
+      font-size: 1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 12px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Layout */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .main-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-title .icon {
+      width: 32px;
+      height: 32px;
+      background: var(--primary-light);
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    /* Question area */
+    .question-area {
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .question-text {
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .option-btn {
+      padding: 14px 20px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .option-btn:hover {
+      border-color: var(--primary-light);
+      background: #f0fdfa;
+      transform: translateX(4px);
+    }
+    .option-btn.selected {
+      border-color: var(--primary);
+      background: #f0fdfa;
+      color: var(--primary-dark);
+    }
+    .option-btn .dot {
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .option-btn.selected .dot {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Why button */
+    .why-btn {
+      background: none;
+      border: 1px dashed var(--primary-light);
+      color: var(--primary);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      margin-top: 12px;
+      transition: all 0.2s;
+    }
+    .why-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-style: solid;
+    }
+
+    /* Chat */
+    .chat-container {
+      display: flex;
+      flex-direction: column;
+      height: 500px;
+    }
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .chat-message {
+      max-width: 85%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      animation: fadeInUp 0.3s ease;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .chat-message.user {
+      align-self: flex-end;
+      background: var(--primary);
+      color: white;
+      border-bottom-right-radius: 4px;
+    }
+    .chat-message.bot {
+      align-self: flex-start;
+      background: var(--bg);
+      color: var(--text);
+      border-bottom-left-radius: 4px;
+      border: 1px solid var(--border);
+    }
+    .chat-message .msg-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      opacity: 0.7;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .chat-input-area {
+      display: flex;
+      gap: 8px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .chat-input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .chat-input:focus {
+      border-color: var(--primary-light);
+    }
+    .chat-send {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: var(--primary);
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .chat-send:hover {
+      background: var(--primary-dark);
+      transform: scale(1.05);
+    }
+    .chat-send:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Diagnoses */
+    .diagnosis-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .diagnosis-item {
+      padding: 16px;
+      border-radius: var(--radius);
+      border-left: 4px solid var(--primary);
+      background: #f0fdfa;
+      transition: all 0.2s;
+    }
+    .diagnosis-item.suspeita {
+      border-left-color: var(--warning);
+      background: #fffbeb;
+    }
+    .diagnosis-item.confirmacao {
+      border-left-color: var(--success);
+      background: #ecfdf5;
+    }
+    .diagnosis-item.grave {
+      border-left-color: var(--error);
+      background: #fef2f2;
+    }
+    .diagnosis-item h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .diagnosis-item .type-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .diagnosis-item .type-tag.suspeita { background: #fde68a; color: #92400e; }
+    .diagnosis-item .type-tag.confirmacao { background: #a7f3d0; color: #065f46; }
+    .diagnosis-item .type-tag.grave { background: #fecaca; color: #991b1b; }
+    .diagnosis-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .diagnosis-item .treatment {
+      font-size: 0.85rem;
+      color: var(--text);
+      background: rgba(255,255,255,0.6);
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+
+    /* Facts */
+    .facts-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .fact-tag {
+      background: #f1f5f9;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .fact-tag .attr { font-weight: 600; }
+    .fact-tag .val { color: var(--primary); font-weight: 500; }
+
+    /* Status bar */
+    .status-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+      font-size: 0.85rem;
+    }
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--success);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .status-bar .info {
+      display: flex;
+      gap: 16px;
+      margin-left: auto;
+    }
+    .status-bar .info span { color: var(--text-muted); }
+    .status-bar .info span strong { color: var(--text); }
+
+    /* Buttons */
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    .btn-outline:hover { background: var(--primary); color: white; }
+    .btn-danger {
+      background: var(--error);
+      color: white;
+    }
+    .btn-danger:hover { background: #b91c1c; }
+
+    /* Explanation panel */
+    .explanation-panel {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      display: none;
+    }
+    .explanation-panel.visible { display: block; }
+    .explanation-panel h5 {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+    }
+
+    /* Loading */
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 20px;
+      color: var(--text-muted);
+    }
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--border);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+    .modal-overlay.visible { display: flex; }
+    .modal {
+      background: var(--surface);
+      border-radius: var(--radius);
+      max-width: 600px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+    .modal h3 { margin-bottom: 16px; }
+    .modal-close {
+      float: right;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 { font-size: 1.5rem; }
+      .options-grid { grid-template-columns: 1fr; }
+      .chat-container { height: 400px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>Dr. IA - Sistema Especialista em Diagnóstico Médico</h1>
+      <p>Base de conhecimento com 80+ regras e 20 doenças. Motor de inferência com encadeamento para frente, para trás e híbrido.</p>
+      <span class="badge">Integração DeepSeek LLM</span>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <div class="status-dot"></div>
+      <span id="status-text">Iniciando consulta...</span>
+      <div class="info">
+        <span>Regras: <strong id="rules-count">0</strong></span>
+        <span>Fatos: <strong id="facts-count">0</strong></span>
+        <span>Diagnósticos: <strong id="diag-count">0</strong></span>
+      </div>
+    </div>
+
+    <div class="main-grid">
+      <!-- Left Column -->
+      <div class="left-col">
+        <!-- Question Card -->
+        <div class="card" id="question-card">
+          <div class="card-title">
+            <div class="icon">?</div>
+            Pergunta de Diagnóstico
+          </div>
+          <div class="question-area" id="question-area">
+            <div class="loading">
+              <div class="spinner"></div>
+              Carregando primeira pergunta...
+            </div>
+          </div>
+          <button class="why-btn" id="why-btn" onclick="showWhy()" style="display:none;">
+            Por que esta pergunta?
+          </button>
+          <div class="explanation-panel" id="why-panel">
+            <h5>Por que estou perguntando isso?</h5>
+            <p id="why-text"></p>
+          </div>
+        </div>
+
+        <!-- Diagnoses Card -->
+        <div class="card" id="diagnoses-card" style="display:none;">
+          <div class="card-title">
+            <div class="icon" style="background:var(--success);">&#10003;</div>
+            Diagnósticos Identificados
+          </div>
+          <div class="diagnosis-list" id="diagnosis-list"></div>
+        </div>
+
+        <!-- Facts Card -->
+        <div class="card" id="facts-card" style="display:none;">
+          <div class="card-title">
+            <div class="icon" style="background:var(--secondary);">&#9679;</div>
+            Fatos Registrados
+          </div>
+          <div class="facts-grid" id="facts-grid"></div>
+        </div>
+
+        <!-- Actions -->
+        <div style="display:flex; gap:12px; margin-top:8px;">
+          <button class="btn btn-outline" onclick="resetSession()">
+            &#8634; Nova Consulta
+          </button>
+          <button class="btn btn-outline" onclick="showRulesModal()">
+            &#128196; Ver Regras
+          </button>
+          <button class="btn btn-outline" onclick="showHypothesesModal()">
+            &#128221; Ver Doenças
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Column: Chat -->
+      <div class="right-col">
+        <div class="card chat-container">
+          <div class="card-title" style="margin-bottom:0; padding-bottom:12px; border-bottom:1px solid var(--border);">
+            <div class="icon" style="background:var(--accent);">&#128172;</div>
+            Chat com Dr. IA (DeepSeek)
+          </div>
+          <div class="chat-messages" id="chat-messages">
+            <div class="chat-message bot">
+              <div class="msg-label">Dr. IA</div>
+              Olá! Sou o Dr. IA, seu assistente médico virtual. Vou fazer algumas perguntas sobre os sintomas do paciente. Responda com atenção para que eu possa ajudar no diagnóstico. Você também pode me perguntar qualquer coisa no chat ao lado!
+            </div>
+          </div>
+          <div class="chat-input-area">
+            <input type="text" class="chat-input" id="chat-input" placeholder="Digite sua pergunta..."
+              onkeydown="if(event.key==='Enter')sendChat()">
+            <button class="chat-send" onclick="sendChat()" id="chat-send-btn">
+              &#10148;
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rules Modal -->
+  <div class="modal-overlay" id="rules-modal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('rules-modal')">&times;</button>
+      <h3>Regras da Base de Conhecimento</h3>
+      <div id="rules-content" style="font-size:0.85rem; line-height:1.6;"></div>
+    </div>
+  </div>
+
+  <!-- Hypotheses Modal -->
+  <div class="modal-overlay" id="hypotheses-modal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('hypotheses-modal')">&times;</button>
+      <h3>Doenças/Hipóteses Diagnósticas</h3>
+      <div id="hypotheses-content" style="font-size:0.85rem; line-height:1.6;"></div>
+    </div>
+  </div>
+
+  <script>
+    let sessionId = null;
+    let currentQuestion = null;
+    let isLoading = false;
+
+    // Initialize
+    async function init() {
+      const res = await fetch('/api/session/new', { method: 'POST' });
+      const data = await res.json();
+      sessionId = data.session_id;
+      updateUI(data);
+    }
+
+    function updateUI(data) {
+      const q = data.next_question;
+      const result = data.current_result;
+      const hasDiag = data.has_diagnosis;
+
+      // Update status
+      document.getElementById('rules-count').textContent = result.fired_rules?.length || 0;
+      document.getElementById('facts-count').textContent = Object.keys(data.working_memory || {}).length;
+      document.getElementById('diag-count').textContent = result.diagnoses?.length || 0;
+
+      // Question
+      const qArea = document.getElementById('question-area');
+      const whyBtn = document.getElementById('why-btn');
+      const whyPanel = document.getElementById('why-panel');
+
+      if (q) {
+        currentQuestion = q;
+        whyBtn.style.display = 'inline-block';
+        whyPanel.classList.remove('visible');
+
+        let html = `<div class="question-text">${q.text}</div><div class="options-grid">`;
+        q.options.forEach((opt, i) => {
+          html += `<button class="option-btn" onclick="answer('${q.values[i]}', this)">
+            <span class="dot"></span>${opt}
+          </button>`;
+        });
+        html += '</div>';
+        qArea.innerHTML = html;
+        document.getElementById('status-text').textContent = 'Aguardando resposta...';
+      } else if (hasDiag) {
+        qArea.innerHTML = '<div style="text-align:center; padding:20px; color:var(--text-muted);"><h3 style="margin-bottom:8px; color:var(--success);">Consulta Concluída</h3><p>Diagnóstico(s) identificado(s). Veja abaixo.</p></div>';
+        whyBtn.style.display = 'none';
+        document.getElementById('status-text').textContent = 'Consulta concluída';
+      } else {
+        qArea.innerHTML = '<div style="text-align:center; padding:20px; color:var(--text-muted);"><p>Sem perguntas adicionais. Nenhum diagnóstico foi identificado com os sintomas informados.</p></div>';
+        whyBtn.style.display = 'none';
+        document.getElementById('status-text').textContent = 'Consulta finalizada';
+      }
+
+      // Diagnoses
+      const diagCard = document.getElementById('diagnoses-card');
+      const diagList = document.getElementById('diagnosis-list');
+      if (result.diagnoses && result.diagnoses.length > 0) {
+        diagCard.style.display = 'block';
+        let html = '';
+        result.diagnoses.forEach(d => {
+          let cls = d.type;
+          if (d.id.includes('grave') || d.id.includes('avancada')) cls += ' grave';
+          html += `<div class="diagnosis-item ${cls}">
+            <span class="type-tag ${d.type}">${d.type}</span>
+            <h4>${d.name}</h4>
+            <p>${d.description}</p>
+            <div class="treatment"><strong>Tratamento:</strong> ${d.treatment}</div>
+          </div>`;
+        });
+        diagList.innerHTML = html;
+      } else {
+        diagCard.style.display = 'none';
+      }
+
+      // Facts
+      const factsCard = document.getElementById('facts-card');
+      const factsGrid = document.getElementById('facts-grid');
+      if (data.working_memory && Object.keys(data.working_memory).length > 0) {
+        factsCard.style.display = 'block';
+        let html = '';
+        for (const [attr, val] of Object.entries(data.working_memory)) {
+          html += `<div class="fact-tag"><span class="attr">${attr}:</span> <span class="val">${val}</span></div>`;
+        }
+        factsGrid.innerHTML = html;
+      } else {
+        factsCard.style.display = 'none';
+      }
+    }
+
+    async function answer(value, btnEl) {
+      if (isLoading || !currentQuestion) return;
+      isLoading = true;
+
+      // Visual feedback
+      document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      btnEl.classList.add('selected');
+      btnEl.disabled = true;
+
+      const res = await fetch(`/api/session/${sessionId}/answer`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ attribute: currentQuestion.attribute, value: value })
+      });
+      const data = await res.json();
+      isLoading = false;
+      updateUI(data);
+    }
+
+    async function showWhy() {
+      if (!currentQuestion) return;
+      const res = await fetch(`/api/session/${sessionId}/explain/why?attribute=${currentQuestion.attribute}`);
+      const data = await res.json();
+      document.getElementById('why-text').textContent = data.explanation;
+      document.getElementById('why-panel').classList.add('visible');
+    }
+
+    async function resetSession() {
+      const res = await fetch(`/api/session/${sessionId}/reset`, { method: 'POST' });
+      const data = await res.json();
+      updateUI(data);
+      addChatMessage('bot', 'Consulta reiniciada. Vamos começar de novo!');
+    }
+
+    // Chat
+    async function sendChat() {
+      const input = document.getElementById('chat-input');
+      const msg = input.value.trim();
+      if (!msg) return;
+      input.value = '';
+
+      addChatMessage('user', msg);
+
+      const sendBtn = document.getElementById('chat-send-btn');
+      sendBtn.disabled = true;
+
+      const res = await fetch(`/api/session/${sessionId}/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg })
+      });
+      const data = await res.json();
+      sendBtn.disabled = false;
+
+      addChatMessage('bot', data.response);
+    }
+
+    function addChatMessage(role, text) {
+      const container = document.getElementById('chat-messages');
+      const div = document.createElement('div');
+      div.className = `chat-message ${role}`;
+      const label = role === 'user' ? 'Você' : 'Dr. IA';
+      div.innerHTML = `<div class="msg-label">${label}</div>${escapeHtml(text)}`;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML.replace(/\n/g, '<br>');
+    }
+
+    // Modals
+    async function showRulesModal() {
+      const res = await fetch('/api/kb/rules');
+      const data = await res.json();
+      const content = document.getElementById('rules-content');
+      let html = `<p><strong>Total de regras:</strong> ${data.count}</p><ul style="margin-top:12px; padding-left:20px;">`;
+      data.rules.forEach(r => {
+        html += `<li style="margin-bottom:8px;"><strong>${r.id}</strong> - ${r.name}<br><span style="color:var(--text-muted);">${r.explanation}</span></li>`;
+      });
+      html += '</ul>';
+      content.innerHTML = html;
+      document.getElementById('rules-modal').classList.add('visible');
+    }
+
+    async function showHypothesesModal() {
+      const res = await fetch('/api/kb/hypotheses');
+      const data = await res.json();
+      const content = document.getElementById('hypotheses-content');
+      let html = `<p><strong>Total de doenças/hipóteses:</strong> ${data.count}</p><ul style="margin-top:12px; padding-left:20px;">`;
+      data.hypotheses.forEach(h => {
+        html += `<li style="margin-bottom:8px;"><strong>${h.name}</strong><br><span style="color:var(--text-muted);">${h.description}</span></li>`;
+      });
+      html += '</ul>';
+      content.innerHTML = html;
+      document.getElementById('hypotheses-modal').classList.add('visible');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('visible');
+    }
+
+    // Close modal on overlay click
+    document.querySelectorAll('.modal-overlay').forEach(el => {
+      el.addEventListener('click', e => {
+        if (e.target === el) el.classList.remove('visible');
+      });
+    });
+
+    // Start
+    init();
+  </script>
+</body>
+</html>
