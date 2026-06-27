@@ -1,0 +1,470 @@
+{
+  "metadata": {
+    "name": "AgenteMed Knowledge Base",
+    "version": "1.0",
+    "domain": "triagem médica educacional",
+    "warning": "Uso acadêmico. Não substitui avaliação médica."
+  },
+  "symptoms": [
+    {"id": "febre", "label": "febre", "synonyms": ["temperatura alta", "febre alta", "calafrios"]},
+    {"id": "tosse", "label": "tosse", "synonyms": ["tossindo", "tosse seca", "tosse com catarro"]},
+    {"id": "falta_ar", "label": "falta de ar", "synonyms": ["dispneia", "dificuldade para respirar", "cansaço para respirar"]},
+    {"id": "perda_olfato", "label": "perda de olfato", "synonyms": ["anosmia", "perda de paladar", "sem cheiro", "sem sentir gosto"]},
+    {"id": "dor_garganta", "label": "dor de garganta", "synonyms": ["garganta inflamada", "irritação na garganta"]},
+    {"id": "coriza", "label": "coriza", "synonyms": ["nariz escorrendo", "secreção nasal"]},
+    {"id": "dor_cabeca", "label": "dor de cabeça", "synonyms": ["cefaleia", "enxaqueca"]},
+    {"id": "dor_muscular", "label": "dor muscular", "synonyms": ["dor no corpo", "mialgia", "dores no corpo"]},
+    {"id": "fadiga", "label": "fadiga", "synonyms": ["cansaço", "fraqueza", "exaustão"]},
+    {"id": "manchas", "label": "manchas na pele", "synonyms": ["exantema", "pintas vermelhas", "rash"]},
+    {"id": "nausea", "label": "náusea", "synonyms": ["enjoo", "vontade de vomitar"]},
+    {"id": "vomito", "label": "vômito", "synonyms": ["vomitando", "vomitei", "emese"]},
+    {"id": "diarreia", "label": "diarreia", "synonyms": ["fezes líquidas", "intestino solto"]},
+    {"id": "dor_abdominal", "label": "dor abdominal", "synonyms": ["dor na barriga", "dor no abdômen", "cólica abdominal"]},
+    {"id": "rigidez_nuca", "label": "rigidez na nuca", "synonyms": ["nuca dura", "pescoço rígido", "dor ao abaixar a cabeça"]},
+    {"id": "dor_peito", "label": "dor no peito", "synonyms": ["aperto no peito", "pressão no peito", "dor torácica"]},
+    {"id": "chiado", "label": "chiado", "synonyms": ["chiado no peito", "sibilância", "peito chiando"]},
+    {"id": "dor_articular", "label": "dor articular", "synonyms": ["dor nas juntas", "artralgia"]},
+    {"id": "sangramento", "label": "sangramento", "synonyms": ["sangramento nasal", "gengiva sangrando", "sangue"]},
+    {"id": "ardor_urinar", "label": "ardor ao urinar", "synonyms": ["dor ao urinar", "queimação ao urinar"]},
+    {"id": "dor_lombar", "label": "dor lombar", "synonyms": ["dor nas costas", "dor no rim"]},
+    {"id": "linfonodos", "label": "linfonodos aumentados", "synonyms": ["ínguas", "caroços no pescoço"]},
+    {"id": "perda_peso", "label": "perda de peso", "synonyms": ["emagrecimento", "perdi peso"]},
+    {"id": "sudorese_noturna", "label": "sudorese noturna", "synonyms": ["suor noturno", "suando à noite"]},
+    {"id": "historia_cardiaca", "label": "história cardíaca", "synonyms": ["problema no coração", "infarto prévio", "cardiopatia"]},
+    {"id": "sexo_sem_preservativo", "label": "sexo sem preservativo", "synonyms": ["transei sem camisinha", "sem camisinha", "sexo sem camisinha", "relação sem camisinha", "relacao sem camisinha", "camisinha estourou", "preservativo rompeu", "condom broke", "sexo desprotegido"]},
+    {"id": "sangramento_ocular", "label": "sangramento ocular", "synonyms": ["olho sangrando", "sangue no olho", "olho com sangue", "sangramento no olho", "olho vermelho com sangue", "olho muito vermelho"]},
+    {"id": "dor_ocular", "label": "dor ocular", "synonyms": ["dor no olho", "olho doendo", "dor nos olhos", "dor ao mexer o olho"]},
+    {"id": "alteracao_visao", "label": "alteração visual", "synonyms": ["visão embaçada", "visao embacada", "perda de visão", "perda de visao", "não enxergo", "nao enxergo", "visão turva", "visao turva"]},
+    {"id": "trauma_ocular", "label": "trauma ocular", "synonyms": ["bati o olho", "pancada no olho", "machuquei o olho", "caiu produto no olho", "produto químico no olho", "produto quimico no olho"]}
+  ],
+  "rules": [
+    {
+      "id": "R01",
+      "conditions": ["febre", "tosse", "falta_ar"],
+      "conclusion": "suspeita_covid",
+      "confidence": 0.85,
+      "hypothesis": "H1",
+      "explanation": "Febre, tosse e falta de ar formam um padrão respiratório viral com sinal de gravidade."
+    },
+    {
+      "id": "R02",
+      "conditions": ["febre", "tosse", "perda_olfato"],
+      "conclusion": "suspeita_covid",
+      "confidence": 0.9,
+      "hypothesis": "H1",
+      "explanation": "Perda de olfato associada a sintomas respiratórios aumenta a suspeita de COVID-19."
+    },
+    {
+      "id": "R03",
+      "conditions": ["febre", "dor_muscular", "fadiga", "tosse"],
+      "conclusion": "suspeita_gripe",
+      "confidence": 0.8,
+      "hypothesis": "H1",
+      "explanation": "Febre, mialgia, fadiga e tosse são comuns em influenza."
+    },
+    {
+      "id": "R04",
+      "conditions": ["coriza", "dor_garganta", "tosse"],
+      "conclusion": "quadro_resfriado",
+      "confidence": 0.72,
+      "hypothesis": "H1",
+      "explanation": "Coriza e dor de garganta com tosse sugerem infecção respiratória alta."
+    },
+    {
+      "id": "R05",
+      "conditions": ["febre", "dor_cabeca", "rigidez_nuca"],
+      "conclusion": "suspeita_meningite",
+      "confidence": 0.92,
+      "hypothesis": "H2",
+      "explanation": "Febre, cefaleia e rigidez de nuca são sinais clássicos de meningite."
+    },
+    {
+      "id": "R06",
+      "conditions": ["febre", "manchas", "dor_muscular"],
+      "conclusion": "suspeita_dengue",
+      "confidence": 0.82,
+      "hypothesis": "H4",
+      "explanation": "Febre com manchas e dor muscular é compatível com arbovirose."
+    },
+    {
+      "id": "R07",
+      "conditions": ["febre", "manchas", "sangramento"],
+      "conclusion": "alerta_dengue_grave",
+      "confidence": 0.94,
+      "hypothesis": "H4",
+      "explanation": "Sangramento em quadro febril com manchas indica sinal de alarme."
+    },
+    {
+      "id": "R08",
+      "conditions": ["dor_peito", "falta_ar"],
+      "conclusion": "alerta_cardiaco",
+      "confidence": 0.88,
+      "hypothesis": "H3",
+      "explanation": "Dor torácica com falta de ar exige avaliação cardiovascular urgente."
+    },
+    {
+      "id": "R09",
+      "conditions": ["dor_peito", "historia_cardiaca"],
+      "conclusion": "risco_cardiaco_alto",
+      "confidence": 0.95,
+      "hypothesis": "H3",
+      "explanation": "Dor no peito em pessoa com histórico cardíaco eleva risco de evento coronariano."
+    },
+    {
+      "id": "R10",
+      "conditions": ["diarreia", "vomito", "dor_abdominal"],
+      "conclusion": "suspeita_gastroenterite",
+      "confidence": 0.78,
+      "hypothesis": "H5",
+      "explanation": "Diarreia, vômito e dor abdominal sugerem gastroenterite."
+    },
+    {
+      "id": "R11",
+      "conditions": ["dor_abdominal", "febre", "nausea"],
+      "conclusion": "investigar_apendicite",
+      "confidence": 0.74,
+      "hypothesis": "H5",
+      "explanation": "Dor abdominal com febre e náusea pode exigir avaliação para abdome agudo."
+    },
+    {
+      "id": "R12",
+      "conditions": ["chiado", "falta_ar", "tosse"],
+      "conclusion": "suspeita_asma",
+      "confidence": 0.83,
+      "hypothesis": "H1",
+      "explanation": "Chiado, falta de ar e tosse são compatíveis com crise asmática."
+    },
+    {
+      "id": "R13",
+      "conditions": ["tosse", "perda_peso", "sudorese_noturna"],
+      "conclusion": "suspeita_tuberculose",
+      "confidence": 0.86,
+      "hypothesis": "H2",
+      "explanation": "Tosse com perda de peso e suor noturno sugere investigação para tuberculose."
+    },
+    {
+      "id": "R14",
+      "conditions": ["ardor_urinar", "dor_lombar", "febre"],
+      "conclusion": "suspeita_pielonefrite",
+      "confidence": 0.81,
+      "hypothesis": "H2",
+      "explanation": "Sintomas urinários com febre e dor lombar sugerem infecção renal."
+    },
+    {
+      "id": "R15",
+      "conditions": ["febre", "dor_garganta", "linfonodos", "fadiga"],
+      "conclusion": "suspeita_mononucleose",
+      "confidence": 0.76,
+      "hypothesis": "H2",
+      "explanation": "Febre, dor de garganta, fadiga e linfonodos aumentados são compatíveis com mononucleose."
+    },
+    {
+      "id": "R16",
+      "conditions": ["sexo_sem_preservativo"],
+      "conclusion": "exposicao_sexual_de_risco",
+      "confidence": 0.88,
+      "hypothesis": "H6",
+      "explanation": "Sexo sem preservativo pode envolver risco de ISTs, HIV e gravidez, dependendo do tipo de relação e do tempo desde a exposição."
+    },
+    {
+      "id": "R17",
+      "conditions": ["sangramento_ocular"],
+      "conclusion": "alerta_oftalmologico",
+      "confidence": 0.84,
+      "hypothesis": "H7",
+      "explanation": "Sangramento ou olho muito vermelho precisa de triagem para diferenciar vaso rompido simples de trauma, hifema ou outra urgência ocular."
+    },
+    {
+      "id": "R18",
+      "conditions": ["sangramento_ocular", "dor_ocular"],
+      "conclusion": "emergencia_oftalmologica",
+      "confidence": 0.94,
+      "hypothesis": "H7",
+      "explanation": "Sangramento ocular com dor aumenta a preocupação com lesão ocular e exige avaliação urgente."
+    },
+    {
+      "id": "R19",
+      "conditions": ["sangramento_ocular", "alteracao_visao"],
+      "conclusion": "emergencia_oftalmologica",
+      "confidence": 0.96,
+      "hypothesis": "H7",
+      "explanation": "Sangramento ocular com alteração de visão é sinal de alarme para avaliação imediata."
+    },
+    {
+      "id": "R20",
+      "conditions": ["trauma_ocular", "sangramento_ocular"],
+      "conclusion": "emergencia_oftalmologica",
+      "confidence": 0.97,
+      "hypothesis": "H7",
+      "explanation": "Trauma ocular com sangramento pode ameaçar a visão e precisa de atendimento imediato."
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H1",
+      "name": "Doença respiratória viral ou obstrutiva",
+      "description": "Agrupa COVID-19, influenza, resfriado e crise asmática.",
+      "supports": ["suspeita_covid", "suspeita_gripe", "quadro_resfriado", "suspeita_asma"]
+    },
+    {
+      "id": "H2",
+      "name": "Doença infecciosa potencialmente grave",
+      "description": "Inclui meningite, tuberculose, pielonefrite e mononucleose.",
+      "supports": ["suspeita_meningite", "suspeita_tuberculose", "suspeita_pielonefrite", "suspeita_mononucleose"]
+    },
+    {
+      "id": "H3",
+      "name": "Emergência cardiovascular",
+      "description": "Sinais de alerta para avaliação cardíaca imediata.",
+      "supports": ["alerta_cardiaco", "risco_cardiaco_alto"]
+    },
+    {
+      "id": "H4",
+      "name": "Arbovirose com possível sinal de alarme",
+      "description": "Quadros compatíveis com dengue e dengue grave.",
+      "supports": ["suspeita_dengue", "alerta_dengue_grave"]
+    },
+    {
+      "id": "H5",
+      "name": "Síndrome gastrointestinal ou abdome agudo",
+      "description": "Agrupa gastroenterite e quadros que pedem investigação abdominal.",
+      "supports": ["suspeita_gastroenterite", "investigar_apendicite"]
+    },
+    {
+      "id": "H6",
+      "name": "Exposição sexual com risco de IST ou gravidez",
+      "description": "Orienta triagem após sexo sem preservativo, rompimento de camisinha ou exposição sexual recente.",
+      "supports": ["exposicao_sexual_de_risco"]
+    },
+    {
+      "id": "H7",
+      "name": "Alerta oftalmológico",
+      "description": "Agrupa sangramento ocular, dor, alteração visual e trauma no olho.",
+      "supports": ["alerta_oftalmologico", "emergencia_oftalmologica"]
+    }
+  ],
+  "bayesian_network": {
+    "description": "Naive Bayes simplificado: P(doença|sintomas) proporcional a P(doença) vezes produto de P(sintoma|doença).",
+    "diseases": [
+      {
+        "name": "COVID-19",
+        "prior": 0.18,
+        "likelihoods": {
+          "febre": 0.72,
+          "tosse": 0.78,
+          "falta_ar": 0.42,
+          "perda_olfato": 0.55,
+          "dor_garganta": 0.35,
+          "fadiga": 0.62,
+          "dor_muscular": 0.48
+        }
+      },
+      {
+        "name": "Influenza",
+        "prior": 0.2,
+        "likelihoods": {
+          "febre": 0.82,
+          "tosse": 0.68,
+          "dor_muscular": 0.74,
+          "fadiga": 0.7,
+          "dor_garganta": 0.42,
+          "coriza": 0.38,
+          "falta_ar": 0.18
+        }
+      },
+      {
+        "name": "Dengue",
+        "prior": 0.16,
+        "likelihoods": {
+          "febre": 0.88,
+          "manchas": 0.46,
+          "dor_muscular": 0.82,
+          "dor_articular": 0.76,
+          "dor_cabeca": 0.7,
+          "nausea": 0.45,
+          "sangramento": 0.12
+        }
+      },
+      {
+        "name": "Meningite",
+        "prior": 0.04,
+        "likelihoods": {
+          "febre": 0.85,
+          "dor_cabeca": 0.82,
+          "rigidez_nuca": 0.78,
+          "nausea": 0.44,
+          "vomito": 0.38,
+          "manchas": 0.18
+        }
+      },
+      {
+        "name": "Gastroenterite",
+        "prior": 0.22,
+        "likelihoods": {
+          "diarreia": 0.84,
+          "vomito": 0.66,
+          "dor_abdominal": 0.72,
+          "nausea": 0.7,
+          "febre": 0.38,
+          "fadiga": 0.34
+        }
+      },
+      {
+        "name": "Asma",
+        "prior": 0.12,
+        "likelihoods": {
+          "chiado": 0.82,
+          "falta_ar": 0.74,
+          "tosse": 0.62,
+          "dor_peito": 0.22,
+          "febre": 0.06,
+          "fadiga": 0.25
+        }
+      },
+      {
+        "name": "Síndrome coronariana",
+        "prior": 0.08,
+        "likelihoods": {
+          "dor_peito": 0.86,
+          "falta_ar": 0.52,
+          "historia_cardiaca": 0.68,
+          "nausea": 0.3,
+          "fadiga": 0.32,
+          "sudorese_noturna": 0.18
+        }
+      },
+      {
+        "name": "Exposição sexual de risco",
+        "prior": 0.06,
+        "likelihoods": {
+          "sexo_sem_preservativo": 0.95,
+          "dor_abdominal": 0.08,
+          "nausea": 0.06,
+          "febre": 0.05
+        }
+      },
+      {
+        "name": "Urgência oftalmológica",
+        "prior": 0.05,
+        "likelihoods": {
+          "sangramento_ocular": 0.92,
+          "dor_ocular": 0.72,
+          "alteracao_visao": 0.82,
+          "trauma_ocular": 0.86,
+          "dor_cabeca": 0.24,
+          "nausea": 0.12
+        }
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "C001",
+      "diagnosis": "COVID-19",
+      "symptoms": ["febre", "tosse", "falta_ar", "fadiga"],
+      "recommendation": "Avaliar teste viral, isolamento conforme orientação local e atenção a piora respiratória."
+    },
+    {
+      "id": "C002",
+      "diagnosis": "COVID-19",
+      "symptoms": ["febre", "tosse", "perda_olfato", "dor_garganta"],
+      "recommendation": "Testagem e acompanhamento de sinais respiratórios."
+    },
+    {
+      "id": "C003",
+      "diagnosis": "Influenza",
+      "symptoms": ["febre", "tosse", "dor_muscular", "fadiga"],
+      "recommendation": "Repouso, hidratação e avaliação médica se houver risco ou agravamento."
+    },
+    {
+      "id": "C004",
+      "diagnosis": "Resfriado comum",
+      "symptoms": ["coriza", "tosse", "dor_garganta"],
+      "recommendation": "Cuidados sintomáticos e observação."
+    },
+    {
+      "id": "C005",
+      "diagnosis": "Meningite bacteriana",
+      "symptoms": ["febre", "dor_cabeca", "rigidez_nuca", "vomito"],
+      "recommendation": "Encaminhamento urgente para atendimento hospitalar."
+    },
+    {
+      "id": "C006",
+      "diagnosis": "Dengue",
+      "symptoms": ["febre", "manchas", "dor_muscular", "dor_articular"],
+      "recommendation": "Hidratação, evitar anti-inflamatórios sem orientação e acompanhar sinais de alarme."
+    },
+    {
+      "id": "C007",
+      "diagnosis": "Dengue com sinal de alarme",
+      "symptoms": ["febre", "manchas", "sangramento", "dor_abdominal"],
+      "recommendation": "Procurar atendimento imediatamente."
+    },
+    {
+      "id": "C008",
+      "diagnosis": "Síndrome coronariana aguda",
+      "symptoms": ["dor_peito", "falta_ar", "historia_cardiaca", "nausea"],
+      "recommendation": "Acionar serviço de urgência."
+    },
+    {
+      "id": "C009",
+      "diagnosis": "Crise asmática",
+      "symptoms": ["chiado", "falta_ar", "tosse"],
+      "recommendation": "Usar plano de ação prescrito e procurar urgência se falta de ar persistir."
+    },
+    {
+      "id": "C010",
+      "diagnosis": "Gastroenterite",
+      "symptoms": ["diarreia", "vomito", "dor_abdominal", "nausea"],
+      "recommendation": "Hidratação oral e avaliação se houver sinais de desidratação."
+    },
+    {
+      "id": "C011",
+      "diagnosis": "Apendicite provável",
+      "symptoms": ["dor_abdominal", "febre", "nausea", "vomito"],
+      "recommendation": "Avaliação presencial para descartar abdome agudo."
+    },
+    {
+      "id": "C012",
+      "diagnosis": "Tuberculose pulmonar",
+      "symptoms": ["tosse", "perda_peso", "sudorese_noturna", "fadiga"],
+      "recommendation": "Investigar com serviço de saúde e exames específicos."
+    },
+    {
+      "id": "C013",
+      "diagnosis": "Pielonefrite",
+      "symptoms": ["ardor_urinar", "dor_lombar", "febre", "nausea"],
+      "recommendation": "Avaliação médica para tratamento antimicrobiano adequado."
+    },
+    {
+      "id": "C014",
+      "diagnosis": "Mononucleose infecciosa",
+      "symptoms": ["febre", "dor_garganta", "linfonodos", "fadiga"],
+      "recommendation": "Avaliação clínica, repouso e evitar esforço se houver suspeita."
+    },
+    {
+      "id": "C015",
+      "diagnosis": "Dengue",
+      "symptoms": ["febre", "dor_cabeca", "dor_muscular", "manchas", "nausea"],
+      "recommendation": "Hidratação e monitoramento de sinais de alarme."
+    },
+    {
+      "id": "C016",
+      "diagnosis": "Exposição sexual desprotegida",
+      "symptoms": ["sexo_sem_preservativo"],
+      "recommendation": "Avaliar tempo desde a relação, risco de HIV/ISTs, possibilidade de contracepção de emergência e necessidade de testes."
+    },
+    {
+      "id": "C017",
+      "diagnosis": "Sangramento ocular sem outros dados",
+      "symptoms": ["sangramento_ocular"],
+      "recommendation": "Perguntar sobre dor, trauma, lente de contato e alteração visual; procurar atendimento urgente se houver sinal de alarme."
+    },
+    {
+      "id": "C018",
+      "diagnosis": "Emergência oftalmológica provável",
+      "symptoms": ["sangramento_ocular", "dor_ocular", "alteracao_visao"],
+      "recommendation": "Buscar atendimento de urgência oftalmológica imediatamente."
+    }
+  ]
+}
